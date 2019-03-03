@@ -1,0 +1,21 @@
+
+.display {
+  background-color: #222222;
+  color: #fff;
+  text-align: right;
+  padding: 0.5em;
+
+}
+
+.keys {
+  display: grid;
+  background-color: #999;
+  grid-gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  padding: 0.5em 1.25em;
+}
+
+.keyOperator {
+
+}
