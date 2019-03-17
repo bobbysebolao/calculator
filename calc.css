@@ -1,21 +1,133 @@
+:root {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html {
+  font-size: 175%;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.calculator {
+  width: 20vw;
+  margin: 10vh auto;
+}
 
 .display {
   background-color: #222222;
   color: #fff;
   text-align: right;
   padding: 0.5em;
+  /* border: 5px solid yellow; */
+  border-radius: 12px 12px 0px 0px;
+  /* border: 1px solid black;
+  border-radius: 10% 10% 0 0; */
 
 }
 
 .keys {
   display: grid;
+  /* grid-template-columns: 25% 25% 25% 25%; */
+  /* grid-template-rows: 20% 20% 20% 20% 20%; */
+  grid-template-areas:
+  "add subtract multiply divide"
+  "seven eight nine equals"
+  "four five six equals"
+  "one two three equals"
+  "zero decimal clear equals";
   background-color: #999;
   grid-gap: 1px;
   grid-template-columns: repeat(4, 1fr);
   position: relative;
-  padding: 0.5em 1.25em;
+  border-radius: 0px 0px 12px 12px;
+}
+
+.keys > *:active {
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0.3;
 }
 
 .keyOperator {
+  background-color: #eee;
+}
 
+.keys__add {
+  grid-area: add;
+}
+
+.keys__subtract {
+  grid-area: subtract;
+}
+
+.keys__multiply {
+  grid-area: multiply;
+}
+
+.keys__divide {
+  grid-area: divide;
+}
+
+.keys__zero {
+  grid-area: zero;
+  border-radius: 0 0 0 12px;
+}
+
+.keys__one {
+  grid-area: one;
+}
+
+.keys__two {
+  grid-area: two;
+}
+
+.keys__three {
+  grid-area: three;
+}
+
+.keys__four {
+  grid-area: four;
+}
+
+.keys__five {
+  grid-area: five;
+}
+
+.keys__six {
+  grid-area: six;
+}
+
+.keys__seven {
+  grid-area: seven;
+}
+
+.keys__eight {
+  grid-area: eight;
+}
+
+.keys__nine {
+  grid-area: nine;
+}
+
+.keys__decimal {
+  grid-area: decimal;
+}
+
+.keys__clear {
+  grid-area: clear;
+}
+
+.keys__equal {
+  background-color: #ff6f29;
+  border-radius: 0 0 12px 0;
+  grid-area: equals;
+  grid-row: 2 / 6;
 }
