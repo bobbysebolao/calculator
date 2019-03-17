@@ -1,32 +1,31 @@
-
 let calculator = document.querySelector('.calculator');
 let display = document.querySelector('.display');
 let keys = calculator.querySelector('.keys');
 
-keys.addEventListener("click", click => {
+let calculate = (n1, operator, n2) => {
+  let result = '';
+  if (operator == 'add') {
+    result = parseFloat(n1) + parseFloat(n2);
+  }
+  if (operator == 'subtract') {
+    result = parseFloat(n1) - parseFloat(n2);
+  }
+  if (operator == 'multiply') {
+    result = parseFloat(n1) * parseFloat(n2);
+  }
+  if (operator == 'divide') {
+    result = parseFloat(n1) / parseFloat(n2);
+  }
+  return result;
+}
+
+let final = keys.addEventListener("click", click => {
   if (click.target.matches('button')) {
     let key = click.target;
     let action = key.dataset.action;
     let keyContent = key.textContent;
     let displayedNum = display.textContent;
     let previousKeyType = calculator.dataset.previousKeyType;
-
-    let calculate = (n1, operator, n2) => {
-      let result = '';
-      if (operator == 'add') {
-        result = parseFloat(n1) + parseFloat(n2);
-      }
-      if (operator == 'subtract') {
-        result = parseFloat(n1) - parseFloat(n2);
-      }
-      if (operator == 'multiply') {
-        result = parseFloat(n1) * parseFloat(n2);
-      }
-      if (operator == 'divide') {
-        result = parseFloat(n1) / parseFloat(n2);
-      }
-      return result;
-    }
 
     if (!action) {
       if (displayedNum == '0' || previousKeyType == 'operator') {
@@ -69,6 +68,13 @@ keys.addEventListener("click", click => {
       }
     if (action == 'clear') {
         console.log('clear key!');
+        display.textContent = 0;
+        calculator.dataset.previousKeyType = '';
+        calculator.dataset.firstNum = '';
+        calculator.dataset.operator = '';
+        let firstNum = '';
+        let secondNum = '';
+
       }
     if (action == 'calculate') {
         console.log('calculate key!');
@@ -81,4 +87,10 @@ keys.addEventListener("click", click => {
 
   }
 
-})
+});
+
+module.exports = {
+    calculate: calculate,
+  };
+
+// module.exports = calculate;
